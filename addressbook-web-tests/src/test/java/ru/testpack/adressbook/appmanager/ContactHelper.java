@@ -64,4 +64,22 @@ public class ContactHelper extends HelperBase {
         alertAccept();
     }
 
+    public void initContactCreation() {
+        if (isElementPresent(By.xpath("//div[@id=\"content\"]//h1"))
+                && wd.findElement(By.xpath("//div[@id=\"content\"]//h1")).getText().equals("Edit / add address book entry")) {
+            return;
+        }
+        click(By.linkText("add new"));
+    }
+
+    public void createContact(ContactData contact) {
+        initContactCreation();
+        fillContactForm(contact);
+        submitContactCreation();
+        returnToHomePage();
+    }
+
+    public boolean isThereAContact() {
+        return isElementPresent(By.xpath("//table[@id='maintable']/tbody/tr[2]/td[8]/a/img"));
+    }
 }

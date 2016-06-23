@@ -21,14 +21,6 @@ public class NavigationHelper extends HelperBase{
         click(By.linkText("groups"));
     }
 
-    public void initContactCreation() {
-        if (isElementPresent(By.xpath("//div[@id=\"content\"]//h1"))
-                && wd.findElement(By.xpath("//div[@id=\"content\"]//h1")).getText().equals("Edit / add address book entry")) {
-            return;
-        }
-        click(By.linkText("add new"));
-    }
-
     public void goToHomePage() {
         if (isElementPresent(By.id("maintable"))) {
             return;
